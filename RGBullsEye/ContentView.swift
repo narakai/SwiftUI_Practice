@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var timer = TimeCounter()
+    
     let rTarget = Double.random(in: 0..<1)
     let gTarget = Double.random(in: 0..<1)
     let bTarget = Double.random(in: 0..<1)
@@ -27,7 +29,7 @@ struct ContentView: View {
                 VStack {
                     ZStack {
                         Color(red: rGuess, green: gGuess, blue: bGuess, opacity: 1.0)
-                        Text("60")
+                        Text(String(timer.counter))
                             .padding(.all, 5)
                             .background(Color.white)
                             .mask(Circle())
